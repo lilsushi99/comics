@@ -1,0 +1,6 @@
+{
+  "name": "ComicArt Studio",
+  "description": "A premium comic art studio website with a modern minimalist aesthetic, interactive showcase, portfolio filtering, process timeline, and an integrated admin CMS.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

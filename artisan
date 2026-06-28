@@ -1,0 +1,37 @@
+#!/usr/bin/env php
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Laravel Artisan CLI
+|--------------------------------------------------------------------------
+|
+| Artisan is the command-line interface included with Laravel. It provides
+| a number of helpful commands to assist you while building your application.
+|
+*/
+
+define('LARAVEL_START', microtime(true));
+
+// Determine if the application is in maintenance mode...
+if (file_exists($maintenance = __DIR__.'/storage/framework/maintenance.php')) {
+    require $maintenance;
+}
+
+// Register the Composer Autoloader...
+require __DIR__.'/vendor/autoload.php';
+
+// Bootstrap the Laravel application...
+$app = require_once __DIR__.'/bootstrap/app.php';
+
+// Handle command CLI request...
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+
+$status = $kernel->handle(
+    $input = new Symfony\Component\Console\Input\ArgvInput,
+    new Symfony\Component\Console\Output\ConsoleOutput
+);
+
+$kernel->terminate($input, $status);
+
+exit($status);

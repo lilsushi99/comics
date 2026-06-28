@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /goat02/
+Disallow: /api/
+Disallow: /storage/framework/
+Disallow: /vendor/
+
+Sitemap: http://localhost:3000/sitemap.xml

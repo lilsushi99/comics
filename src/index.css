@@ -1,0 +1,427 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marquee-right 25s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* Marvel-style Paper Flip effects */
+.comic-flip-horizontal-exit {
+  transform: rotateY(-90deg) scale(0.95);
+  opacity: 0;
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+}
+
+.comic-flip-horizontal-enter {
+  transform: rotateY(90deg) scale(1.05);
+  opacity: 0;
+}
+
+.comic-flip-horizontal-active {
+  transform: rotateY(0) scale(1);
+  opacity: 1;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+/* Custom scrollbar for premium minimalist feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444444;
+}
+
+/* Stretched display typography helper */
+.stretched-text {
+  font-stretch: 150%;
+  letter-spacing: -0.05em;
+}
+
+/* 4K GRADIENT ANIMATING BACKGROUND (Theme 1) */
+@keyframes gradient4k {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.theme-4k-gradient-bg {
+  background: linear-gradient(-45deg, #090615, #140523, #040f1a, #03030a);
+  background-size: 300% 300%;
+  animation: gradient4k 20s ease infinite;
+}
+
+/* DEEP OLED BLACK THEME (Theme 4) */
+.theme-deep-black {
+  background-color: #000000 !important;
+}
+.theme-deep-black #applet-viewport,
+.theme-deep-black #homepage,
+.theme-deep-black #portfolio-page,
+.theme-deep-black #studio-page,
+.theme-deep-black #blog-page,
+.theme-deep-black #contact-page,
+.theme-deep-black footer {
+  background-color: #000000 !important;
+}
+.theme-deep-black .bg-[#050505],
+.theme-deep-black .bg-[#070707],
+.theme-deep-black .bg-[#0a0a0a],
+.theme-deep-black .bg-neutral-950,
+.theme-deep-black .bg-[#121212],
+.theme-deep-black .bg-[#101010] {
+  background-color: #020202 !important;
+  border-color: #121212 !important;
+}
+.theme-deep-black .border-neutral-900,
+.theme-deep-black .border-neutral-800 {
+  border-color: #121212 !important;
+}
+
+
+/* THEME 5 - NEUBRUTALISM (Gumroad Retro Inspired) */
+.theme-neubrutalism {
+  background-color: #FDF9ED !important;
+  color: #000000 !important;
+}
+
+.theme-neubrutalism #applet-viewport,
+.theme-neubrutalism #homepage,
+.theme-neubrutalism #portfolio-page,
+.theme-neubrutalism #studio-page,
+.theme-neubrutalism #blog-page,
+.theme-neubrutalism #contact-page,
+.theme-neubrutalism footer,
+.theme-neubrutalism header,
+.theme-neubrutalism nav,
+.theme-neubrutalism #blog-reading-view,
+.theme-neubrutalism #blog-index-page {
+  background-color: #FDF9ED !important;
+  color: #000000 !important;
+}
+
+/* Typography Overrides */
+.theme-neubrutalism h1,
+.theme-neubrutalism h2,
+.theme-neubrutalism h3,
+.theme-neubrutalism h4,
+.theme-neubrutalism h5,
+.theme-neubrutalism h6,
+.theme-neubrutalism span,
+.theme-neubrutalism p,
+.theme-neubrutalism a,
+.theme-neubrutalism button,
+.theme-neubrutalism label {
+  color: #000000 !important;
+}
+
+.theme-neubrutalism h1,
+.theme-neubrutalism h2 {
+  font-family: var(--font-sans) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+}
+
+.theme-neubrutalism p {
+  color: #1a1a1a !important;
+  font-weight: 500 !important;
+}
+
+.theme-neubrutalism .text-neutral-400,
+.theme-neubrutalism .text-neutral-500,
+.theme-neubrutalism .text-zinc-400,
+.theme-neubrutalism .text-zinc-500 {
+  color: #2b2b2b !important;
+}
+
+/* Elements Outlines & Shadows */
+.theme-neubrutalism .border-neutral-900,
+.theme-neubrutalism .border-neutral-800,
+.theme-neubrutalism .border-neutral-700,
+.theme-neubrutalism .border-zinc-800,
+.theme-neubrutalism .border-white\/10,
+.theme-neubrutalism .border-white\/5 {
+  border: 3px solid #000000 !important;
+  border-radius: 0px !important;
+}
+
+.theme-neubrutalism .rounded-2xl,
+.theme-neubrutalism .rounded-3xl,
+.theme-neubrutalism .rounded-xl,
+.theme-neubrutalism .rounded-lg,
+.theme-neubrutalism .rounded-md,
+.theme-neubrutalism .rounded-sm {
+  border-radius: 0px !important;
+}
+
+/* Background Replacement to bold colors */
+.theme-neubrutalism .bg-black,
+.theme-neubrutalism .bg-[#050505],
+.theme-neubrutalism .bg-[#070707],
+.theme-neubrutalism .bg-[#0a0a0a],
+.theme-neubrutalism .bg-neutral-950,
+.theme-neubrutalism .bg-neutral-900,
+.theme-neubrutalism .bg-zinc-950,
+.theme-neubrutalism .bg-[#121212],
+.theme-neubrutalism .bg-[#101010],
+.theme-neubrutalism .bg-neutral-950/70,
+.theme-neubrutalism .bg-neutral-900/60 {
+  background-color: #FFFFFF !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 6px 6px 0px 0px #000000 !important;
+  color: #000000 !important;
+}
+
+/* Custom interactive buttons */
+.theme-neubrutalism button,
+.theme-neubrutalism .cta-btn,
+.theme-neubrutalism .btn-primary,
+.theme-neubrutalism .btn-secondary,
+.theme-neubrutalism .bg-orange-500 {
+  border: 3px solid #000000 !important;
+  border-radius: 0px !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+  background-color: #feff6e !important; /* retro yellow */
+  color: #000000 !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  transition: all 0.15s ease-in-out !important;
+}
+
+.theme-neubrutalism button:hover,
+.theme-neubrutalism .cta-btn:hover,
+.theme-neubrutalism .bg-orange-500:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0px 0px #000000 !important;
+  background-color: #FFA23A !important; /* warm orange on hover */
+}
+
+/* Navigation bar */
+.theme-neubrutalism nav {
+  border-bottom: 4px solid #000000 !important;
+  background-color: #FDF9ED !important;
+}
+
+.theme-neubrutalism nav a {
+  border-radius: 0px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+}
+
+/* Forms */
+.theme-neubrutalism input,
+.theme-neubrutalism textarea,
+.theme-neubrutalism select {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border: 3px solid #000000 !important;
+  border-radius: 0px !important;
+  box-shadow: 4px 4px 0px 0px #000000 !important;
+}
+
+.theme-neubrutalism input:focus,
+.theme-neubrutalism textarea:focus {
+  outline: none !important;
+  transform: translate(1px, 1px) !important;
+  box-shadow: 3px 3px 0px 0px #000000 !important;
+}
+
+
+/* THEME 6 - MODERN SAAS (Pills, light, subtle borders, high-fidelity grids) */
+.theme-saas {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+.theme-saas #applet-viewport,
+.theme-saas #homepage,
+.theme-saas #portfolio-page,
+.theme-saas #studio-page,
+.theme-saas #blog-page,
+.theme-saas #contact-page,
+.theme-saas footer,
+.theme-saas header,
+.theme-saas nav,
+.theme-saas #blog-reading-view,
+.theme-saas #blog-index-page {
+  background-color: #F8FAFC !important;
+  color: #0F172A !important;
+}
+
+/* Typography Overrides */
+.theme-saas h1,
+.theme-saas h2,
+.theme-saas h3,
+.theme-saas h4,
+.theme-saas h5,
+.theme-saas h6,
+.theme-saas span,
+.theme-saas p,
+.theme-saas a,
+.theme-saas button,
+.theme-saas label {
+  color: #1E293B;
+}
+
+.theme-saas h1,
+.theme-saas h2 {
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em !important;
+  color: #0F172A !important;
+}
+
+.theme-saas p {
+  color: #475569 !important;
+}
+
+.theme-saas .text-neutral-400,
+.theme-saas .text-neutral-500,
+.theme-saas .text-zinc-400 {
+  color: #64748B !important;
+}
+
+/* Elements Borders & Soft Shadows */
+.theme-saas .border-neutral-900,
+.theme-saas .border-neutral-800,
+.theme-saas .border-neutral-700,
+.theme-saas .border-zinc-800,
+.theme-saas .border-white\/10,
+.theme-saas .border-white\/5 {
+  border-color: #E2E8F0 !important;
+  box-shadow: none !important;
+}
+
+.theme-saas .rounded-2xl {
+  border-radius: 1.5rem !important;
+}
+.theme-saas .rounded-3xl {
+  border-radius: 2rem !important;
+}
+.theme-saas .rounded-xl {
+  border-radius: 1rem !important;
+}
+.theme-saas .rounded-lg {
+  border-radius: 0.75rem !important;
+}
+
+/* Clean background cards with subtle shadow */
+.theme-saas .bg-black,
+.theme-saas .bg-[#050505],
+.theme-saas .bg-[#070707],
+.theme-saas .bg-[#0a0a0a],
+.theme-saas .bg-neutral-950,
+.theme-saas .bg-neutral-900,
+.theme-saas .bg-zinc-950,
+.theme-saas .bg-[#121212],
+.theme-saas .bg-[#101010],
+.theme-saas .bg-neutral-950/70,
+.theme-saas .bg-neutral-900/60 {
+  background-color: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.02) !important;
+  color: #1E293B !important;
+}
+
+/* Beautiful Pill Buttons */
+.theme-saas button,
+.theme-saas .cta-btn,
+.theme-saas .btn-primary,
+.theme-saas .bg-orange-500 {
+  border-radius: 9999px !important;
+  background: linear-gradient(135deg, #2563EB, #4F46E5) !important;
+  color: #FFFFFF !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.25) !important;
+  border: none !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.theme-saas button:hover,
+.theme-saas .cta-btn:hover,
+.theme-saas .bg-orange-500:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.35) !important;
+  opacity: 0.95 !important;
+}
+
+/* Secondary Button for SaaS */
+.theme-saas .btn-secondary {
+  border-radius: 9999px !important;
+  background-color: #FFFFFF !important;
+  color: #1E293B !important;
+  border: 1px solid #D1D5DB !important;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05) !important;
+}
+
+/* Navigation bar as floating blurred glass */
+.theme-saas nav {
+  background-color: rgba(248, 250, 252, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+}
+
+.theme-saas nav a {
+  border-radius: 9999px !important;
+}
+
+/* Forms */
+.theme-saas input,
+.theme-saas textarea,
+.theme-saas select {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 9999px !important;
+  padding-left: 1.25rem !important;
+  padding-right: 1.25rem !important;
+}
+
+.theme-saas textarea {
+  border-radius: 1rem !important;
+}
+
+.theme-saas input:focus,
+.theme-saas textarea:focus {
+  outline: none !important;
+  border-color: #6366F1 !important;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1) !important;
+}
